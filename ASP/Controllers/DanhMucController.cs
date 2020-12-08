@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ASP.Models;
 
 namespace ASP.Controllers
 {
     public class DanhMucController : Controller
     {
         // GET: DanhMuc
-        public ActionResult Index()
+        Shop db = new Shop();
+        public List<DanhMuc> Get_List(int id)
         {
-            return View();
+            return db.DanhMucs.Where(x => x.ID == id).ToList();
         }
     }
 }

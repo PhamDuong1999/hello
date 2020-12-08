@@ -11,10 +11,6 @@ namespace ASP.Controllers
     {
         // GET: NhaCungCap
         Shop db = new Shop();
-        public ActionResult Index()
-        {
-            return View();
-        }
         public   List<NhaCungCap> Get_list()
         {
             return db.NhaCungCaps.ToList();

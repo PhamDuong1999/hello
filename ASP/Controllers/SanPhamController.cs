@@ -11,10 +11,6 @@ namespace ASP.Controllers
     {
         // GET: SanPham
         Shop db = new Shop();
-        public ActionResult Index()
-        {
-            return View();
-        }
         public List<SanPham> Get_list(int id)
         {
             var listSPById = db.SanPhams.Where(x=>(x.MaNCC==id || x.MaDM==id)).ToList();
