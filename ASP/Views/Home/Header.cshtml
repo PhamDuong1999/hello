@@ -1,0 +1,221 @@
+﻿@using ASP.Models
+@model List<ASP.Models.NhaCungCap>
+
+@{ 
+    Layout = null;
+    var dm = ViewData["dm"] as List<DanhMuc>;
+    
+}
+<header id="header" class="header has-sticky sticky-jump">
+    <div class="header-wrapper">
+        <div id="top-bar" class="header-top hide-for-sticky nav-dark">
+            <div class="flex-row container">
+                <div class="flex-col hide-for-medium flex-left">
+                    <ul class="nav nav-left medium-nav-center nav-small nav-divided">
+                        <li class="html custom html_topbar_left">MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC</li>
+                    </ul>
+                </div>
+                <div class="flex-col hide-for-medium flex-center">
+                    <ul class="nav nav-center nav-small nav-divided"></ul>
+                </div>
+              
+                <div class="flex-col hide-for-medium flex-right">
+                    <ul class="nav top-bar-nav nav-right nav-small nav-divided">
+                        <li class="header-divider"></li>
+                        <li class="html custom html_nav_position_text_top">
+                            <ul id="header-contact" class="nav nav-divided nav-uppercase header-contact">
+                                <li class="">
+                                    <a class="tooltip tooltipstered">
+                                        <i class="icon-clock"
+                                           style="font-size:15px;"></i> <span>08:00 - 20:00</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="tel:097.559.2299" class="tooltip tooltipstered">
+                                        <i class="icon-phone" style="font-size:15px;"></i> <span>097.559.2299</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex-col show-for-medium flex-grow">
+                    <ul class="nav nav-center nav-small mobile-nav nav-divided">
+                        <li class="html custom html_topbar_left">MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="masthead" class="header-main hide-for-sticky nav-dark">
+            <div class="header-inner flex-row container logo-left medium-logo-center" role="navigation">
+                <div id="logo" class="flex-col logo">
+                    <a href="https://shopwatch.vn/"
+                       title="ShopWatch &#8211; Đồng hồ chính hãng" rel="home">
+                        <img width="166" height="91"
+                             src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20166%2091'%3E%3C/svg%3E"
+                             class="header_logo header-logo" alt="ShopWatch &#8211; Đồng hồ chính hãng"
+                             data-lazy-src="https://shopwatch.vn/wp-content/uploads/2017/11/logo-shopwatch.png" /><noscript>
+                            <img width="166" height="91"
+                                 src="https://shopwatch.vn/wp-content/uploads/2017/11/logo-shopwatch.png"
+                                 class="header_logo header-logo"
+                                 alt="ShopWatch &#8211; Đồng hồ chính hãng" />
+                        </noscript><img width="166" height="91"
+                                        src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20166%2091'%3E%3C/svg%3E"
+                                        class="header-logo-dark" alt="ShopWatch &#8211; Đồng hồ chính hãng"
+                                        data-lazy-src="https://shopwatch.vn/wp-content/uploads/2017/11/logo-shopwatch.png" /><noscript>
+                            <img width="166" height="91"
+                                 src="https://shopwatch.vn/wp-content/uploads/2017/11/logo-shopwatch.png"
+                                 class="header-logo-dark" alt="ShopWatch &#8211; Đồng hồ chính hãng" />
+                        </noscript>
+                    </a>
+                </div>
+                <div class="flex-col show-for-medium flex-left">
+                    <ul class="mobile-nav nav nav-left ">
+                        <li class="nav-icon has-icon">
+                            <div class="header-button">
+                                <a href="#" data-open="#main-menu" data-pos="left"
+                                   data-bg="main-menu-overlay" data-color="" class="icon primary button round is-small"
+                                   aria-label="Menu" aria-controls="main-menu" aria-expanded="false">
+                                    <i class="icon-menu"></i>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex-col hide-for-medium flex-left flex-grow">
+                    <ul class="header-nav header-nav-main nav nav-left nav-uppercase">
+                        <li class="header-search-form search-form html relative has-icon">
+                            <div class="header-search-form-wrapper">
+                                <div class="searchform-wrapper ux-search-box relative is-normal">
+                                    <form role="search" method="get" class="searchform" action="https://shopwatch.vn/">
+                                        <div class="flex-row relative">
+                                            <div class="flex-col flex-grow">
+                                                <label class="screen-reader-text"
+                                                       for="woocommerce-product-search-field-0">Tìm kiếm:</label> <input type="search" id="woocommerce-product-search-field-0"
+                                                                                                                         class="search-field mb-0" placeholder="Tìm kiếm&hellip;" value=""
+                                                                                                                         name="s" /> <input type="hidden" name="post_type" value="product" />
+                                            </div>
+                                            <div class="flex-col">
+                                                <button type="submit" value="Tìm kiếm"
+                                                        class="ux-search-submit submit-button secondary button icon mb-0"
+                                                        aria-label="Submit">
+                                                    <i class="icon-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="live-search-results text-left z-top"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex-col hide-for-medium flex-right">
+                    <ul class="header-nav header-nav-main nav nav-right nav-uppercase">
+                        <li class="header-divider"></li>
+                        <li class="cart-item has-icon">
+                            <div class="header-button">
+                                <a href="https://shopwatch.vn/gio-hang"
+                                   class="header-cart-link off-canvas-toggle nav-top-link icon primary button round is-small"
+                                   data-open="#cart-popup" data-class="off-canvas-cart" title="Giỏ hàng"
+                                   data-pos="right">
+                                    <span class="header-cart-title">
+                                        <span class="cart-price">
+                                            <span class="woocommerce-Price-amount amount">
+                                                <bdi>
+                                                    0&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+                                                </bdi>
+                                            </span>
+                                        </span>
+                                    </span> <i class="icon-shopping-bag" data-icon-label="0"> </i>
+                                </a>
+                            </div>
+                            <div id="cart-popup" class="mfp-hide widget_shopping_cart">
+                                <div class="cart-popup-inner inner-padding">
+                                    <div class="cart-popup-title text-center">
+                                        <h4 class="uppercase">Giỏ hàng</h4>
+                                        <div class="is-divider"></div>
+                                    </div>
+                                    <div class="widget_shopping_cart_content">
+                                        <p class="woocommerce-mini-cart__empty-message">
+                                            Chưa có sản phẩm trong giỏ hàng.
+                                        </p>
+                                    </div>
+                                    <div class="cart-sidebar-content relative"></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex-col show-for-medium flex-right">
+                    <ul class="mobile-nav nav nav-right ">
+                        <li class="cart-item has-icon">
+                            <div class="header-button">
+                                <a href="https://shopwatch.vn/gio-hang"
+                                   class="header-cart-link off-canvas-toggle nav-top-link icon primary button round is-small"
+                                   data-open="#cart-popup" data-class="off-canvas-cart" title="Giỏ hàng"
+                                   data-pos="right"> <i class="icon-shopping-bag" data-icon-label="0"> </i> </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container">
+                <div class="top-divider full-width"></div>
+            </div>
+        </div>
+        <div id="wide-nav" class="header-bottom wide-nav nav-dark flex-has-center hide-for-medium">
+            <div class="flex-row container">
+                <div class="flex-col hide-for-medium flex-center">
+                    <ul class="nav header-nav header-bottom-nav nav-center nav-line-grow nav-size-medium nav-spacing-medium nav-uppercase">
+                        <li id="menu-item-8170"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-46 current_page_item menu-item-8170 active menu-item-design-default">
+                            <a href="https://shopwatch.vn/" aria-current="page" class="nav-top-link">Trang chủ</a>
+                        </li>
+                        <li id="menu-item-25010"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25010 menu-item-design-default">
+                            <a href="https://shopwatch.vn/gioi-thieu-shopwatch" class="nav-top-link">Về ShopWatch</a>
+                        </li>
+                        <li id="menu-item-9455"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9455 menu-item-design-default has-dropdown">
+                            <a href="#" class="nav-top-link">Thương hiệu<i class="icon-angle-down"></i></a>
+                            <ul class="sub-menu nav-dropdown nav-dropdown-simple dropdown-uppercase">
+                                @foreach (var item in Model)
+                                {
+                                    <li id="menu-item-14488"
+                                        class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-14488">
+                                        <a href="#">@item.TenNCC</a>
+                                    </li>
+                                }
+
+
+                            </ul>
+                        </li>
+                        <li id="menu-item-14489"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14489 menu-item-design-default has-dropdown">
+                            <a href="#" class="nav-top-link">Danh Mục<i class="icon-angle-down"></i></a>
+                            <ul class="sub-menu nav-dropdown nav-dropdown-simple dropdown-uppercase">
+                                @foreach (var item in dm)
+                                {
+                                    <li id="menu-item-8098"
+                                        class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-8098">
+                                        <a href="#">@item.TenDM</a>
+                                    </li>
+                                }
+
+                            </ul>
+                        </li>
+                        <li id="menu-item-25003"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25003 menu-item-design-default">
+                            <a href="https://shopwatch.vn/lien-he" class="nav-top-link">Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="header-bg-container fill">
+            <div class="header-bg-image fill"></div>
+            <div class="header-bg-color fill"></div>
+        </div>
+    </div>
+</header>

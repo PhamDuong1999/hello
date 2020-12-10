@@ -1,0 +1,226 @@
+﻿@using ASP.Models
+@model List<ASP.Models.NhaCungCap>
+@{
+    var spSale = ViewData["spSale"] as List<SanPham>;
+    var sp = ViewData["sp"] as List<SanPham>;
+}
+<main id="main" class="">
+    <div id="content" class="content-area page-wrapper" role="main">
+        <div class="row row-main">
+            <div class="large-12 col">
+                <div class="col-inner">
+                    <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_1247509636">
+                        <div class="img-inner dark">
+                            <picture class="lazy-load attachment-large size-large sp-no-webp"
+                                     data-srcset="https://shopwatch.vn/wp-content/uploads/2018/03/bst-thang3-12.jpg 1000w, https://shopwatch.vn/wp-content/uploads/2018/03/bst-thang3-12-768x250.jpg 768w, https://shopwatch.vn/wp-content/uploads/2018/03/bst-thang3-12-510x166.jpg 510w">
+                                <source data-srcset="https://shopwatch.vn/wp-content/uploads/2018/03/bst-thang3-12.webp 1000w,https://shopwatch.vn/wp-content/uploads/2018/03/bst-thang3-12-768x250.webp 768w,https://shopwatch.vn/wp-content/uploads/2018/03/bst-thang3-12-510x166.webp 510w"
+                                        sizes="(max-width: 1000px) 100vw, 1000px" type="image/webp">
+                                <source data-srcset="https://shopwatch.vn/wp-content/uploads/2018/03/bst-thang3-12.jpg 1000w, https://shopwatch.vn/wp-content/uploads/2018/03/bst-thang3-12-768x250.jpg 768w, https://shopwatch.vn/wp-content/uploads/2018/03/bst-thang3-12-510x166.jpg 510w"
+                                        sizes="(max-width: 1000px) 100vw, 1000px" type="image/jpeg">
+                                <img data-src="https://shopwatch.vn/wp-content/uploads/2018/03/bst-thang3-12.jpg"
+                                     class="lazy-load attachment-large size-large sp-no-webp"
+                                     data-srcset="https://shopwatch.vn/wp-content/uploads/2018/03/bst-thang3-12.jpg 1000w, https://shopwatch.vn/wp-content/uploads/2018/03/bst-thang3-12-768x250.jpg 768w, https://shopwatch.vn/wp-content/uploads/2018/03/bst-thang3-12-510x166.jpg 510w"
+                                     height="325" width="1000"
+                                     srcset="https://shopwatch.vn/wp-content/uploads/2018/03/bst-thang3-12.jpg 1000w, https://shopwatch.vn/wp-content/uploads/2018/03/bst-thang3-12-768x250.jpg 768w, https://shopwatch.vn/wp-content/uploads/2018/03/bst-thang3-12-510x166.jpg 510w"
+                                     sizes="(max-width: 1000px) 100vw, 1000px">
+                            </picture>
+                        </div>
+                        <style>
+                            #image_1247509636 {
+                                width: 100%
+                            }
+                        </style>
+                    </div>
+                    <div class="container section-title-container" style="margin-top:19px;">
+                        <h3 class="section-title section-title-center">
+                            <b></b><span class="section-title-main">
+                                Thương
+                                hiệu nổi tiếng
+                            </span><b></b>
+                        </h3>
+                    </div>
+                    <div class="row row-large row-full-width align-middle align-center" id="row-1078446897">
+                        @* Lấy nhà cung cấp *@
+                        @foreach (var item in Model)
+                        {
+                            <div id="col-389035322" class="col medium-3 small-6 large-3">
+                                <div class="col-inner">
+                                    <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_754866892">
+                                        <a class="" href="#" target="_blank"
+                                           rel="noopener noreferrer">
+                                            <div class="img-inner image-cover dark"
+                                                 style="padding-top:50%;margin:39px 0px 0px 0px;">
+                                                <img class="lazy-load attachment-thumbnail size-thumbnail sp-no-webp" src="~/image/{@item.Logo}">
+                                            </div>
+                                        </a>
+                                        <style>
+                                            #image_754866892 {
+                                                width: 100%
+                                            }
+                                        </style>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                    <div class="container section-title-container">
+                        <h3 class="section-title section-title-center">
+                            <b></b><span class="section-title-main">
+                                <i class="icon-gift"></i>HOT SALE 2020
+                            </span><b></b>
+                        </h3>
+                    </div>
+                    <div class="row large-columns-4 medium-columns-3 small-columns-2 row-small row-full-width slider row-slider slider-nav-reveal slider-nav-push"
+                         data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'>
+                        @* Lấy sale *@
+                        @foreach (var item in spSale)
+                        {
+                            <div class="col">
+                                <div class="col-inner">
+                                    <div class="badge-container absolute left top z-1">
+                                        <div class="callout badge badge-circle">
+                                            <div class="badge-inner secondary on-sale">
+                                                <span class="onsale">-@item.Sale%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-small box ">
+                                        <div class="box-image">
+                                            <div class="image-fade_in_back">
+                                                <a href="@Url.Action("Detail","Home",new { id=item.ID})">
+                                                    <img class="lazy-load attachment-woocommerce_thumbnail size-woocommerce_thumbnail sp-no-webp" src="~/image/@item.Avatar">
+                                                </a>
+                                            </div>
+                                            <div class="image-tools is-small top right show-on-hover"></div>
+                                            <div class="image-tools is-small hide-for-small bottom left show-on-hover">
+                                            </div>
+                                            <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
+                                            </div>
+                                        </div>
+                                        <div class="box-text box-text-products text-center grid-style-2">
+                                            <div class="title-wrapper">
+                                                <p class="name product-title woocommerce-loop-product__title">
+                                                    <a href="#" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                                                        @item.TenSP
+                                                    </a>
+                                                </p>
+                                            </div>
+                                            <div class="price-wrapper">
+                                                <span class="price">
+                                                    <del>
+                                                        <span class="woocommerce-Price-amount amount">
+                                                            <bdi>
+                                                                @{
+                                                                    int dongia = (int)item.DonGia;
+                                                                    string dg = String.Format("{0:0,00}", dongia);
+                                                                }
+                                                                @dg&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+                                                            </bdi>
+                                                        </span>
+                                                    </del>
+                                                    <ins>
+                                                        <span class="woocommerce-Price-amount amount">
+                                                            <bdi>
+                                                                @{
+                                                                    float sale = ((float)(100 - item.Sale) / 100);
+                                                                    float a = (float)(item.DonGia * sale);
+                                                                    string A = String.Format("{0:0,00}", a);
+                                                                }
+                                                                @A&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+                                                            </bdi>
+                                                        </span>
+                                                    </ins>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                    @foreach (var item in Model)
+                    {
+                        <div class="container section-title-container">
+                            <h3 class="section-title section-title-center">
+                                <b></b><span class="section-title-main">
+                                    @item.TenNCC
+                                </span><b></b>
+                            </h3>
+                        </div>
+                        List<SanPham> sanpham = sp.Where(x => x.MaNCC == item.ID).ToList();
+                        <div class="row large-columns-4 medium-columns-3 small-columns-2 row-small row-full-width slider row-slider slider-nav-reveal slider-nav-push"
+                             data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'>
+                            @foreach(var a in sanpham)
+                            {
+                            <div class="col">
+                                <div class="col-inner">
+                                    <div class="badge-container absolute left top z-1">
+                                        <div class="callout badge badge-circle">
+                                            <div class="badge-inner secondary on-sale">
+                                                <span class="onsale">-@a.Sale%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-small box ">
+                                        <div class="box-image">
+                                            <div class="image-fade_in_back">
+                                                <a href="#">
+                                                    <img class="lazy-load attachment-woocommerce_thumbnail size-woocommerce_thumbnail sp-no-webp" src="~/image/@a.Avatar" />
+                                                </a>
+                                            </div>
+                                            <div class="image-tools is-small top right show-on-hover"></div>
+                                            <div class="image-tools is-small hide-for-small bottom left show-on-hover">
+                                            </div>
+                                            <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
+                                            </div>
+                                        </div>
+                                        <div class="box-text box-text-products text-center grid-style-2">
+                                            <div class="title-wrapper">
+                                                <p class="name product-title woocommerce-loop-product__title">
+                                                    <a href="#"
+                                                       class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                                                        @a.TenSP
+                                                    </a>
+                                                </p>
+                                            </div>
+                                            <div class="price-wrapper">
+                                                <span class="price">
+                                                    <del>
+                                                        <span class="woocommerce-Price-amount amount">
+                                                            <bdi>
+                                                                @{
+                                                                    int dongia = (int)a.DonGia;
+                                                                    string dg = String.Format("{0:0,00}", dongia);
+                                                                }
+                                                                @dg&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+                                                            </bdi>
+                                                        </span>
+                                                    </del>
+                                                    <ins>
+                                                        <span class="woocommerce-Price-amount amount">
+                                                            <bdi>
+                                                                @{
+                                                                    float sale = ((float)(100 - a.Sale) / 100);
+                                                                    float newdongia = (float)(a.DonGia * sale);
+                                                                    string A = String.Format("{0:0,00}", newdongia);
+                                                                }
+                                                                @A&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+                                                            </bdi>
+                                                        </span>
+                                                    </ins>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

@@ -14,7 +14,10 @@ namespace ASP.Models
         [StringLength(50)]
         public string TenSP { get; set; }
 
-        [StringLength(250)]
+        [Column(TypeName = "ntext")]
+        public string GioiThieu { get; set; }
+
+        [Column(TypeName = "ntext")]
         public string MoTa { get; set; }
 
         [StringLength(50)]
@@ -23,6 +26,11 @@ namespace ASP.Models
         public int? SoLuong { get; set; }
 
         public int? DonGia { get; set; }
+
+        public int? Sale { get; set; }
+
+        [StringLength(50)]
+        public string XuatXu { get; set; }
 
         [StringLength(50)]
         public string KieuMay { get; set; }
@@ -37,6 +45,10 @@ namespace ASP.Models
 
         [StringLength(50)]
         public string ChatLieuKinh { get; set; }
+
+        public DateTime? NgayTao { get; set; }
+
+        public DateTime? NgaySua { get; set; }
 
         public int? MaNCC { get; set; }
 

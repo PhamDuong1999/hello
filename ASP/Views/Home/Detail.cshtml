@@ -1,0 +1,1029 @@
+﻿@using ASP.Models
+@model List<ASP.Models.SanPham>
+@{
+    var sp = ViewData["sp"] as SanPham;
+    var listSP = ViewData["listSP"] as List<SanPham>;
+    var ncc = ViewData["ncc"] as NhaCungCap;
+    var dm = ViewData["dm"] as DanhMuc;
+}
+<main id="main" class="">
+    <div class="shop-container">
+        <div class="container">
+            <div class="woocommerce-notices-wrapper"></div>
+        </div>
+        <div id="product-10210" class="product type-product post-10210 status-publish first instock product_cat-seiko-5 product_cat-dong-ho-nam product_cat-dong-ho-seiko has-post-thumbnail sale featured shipping-taxable purchasable product-type-simple">
+            <div class="product-container">
+                <div class="product-main">
+                    <div class="row content-row mb-0">
+                        <div class="product-gallery large-6 col">
+                            <div class="product-images relative mb-half has-hover woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images"
+                                 data-columns="4">
+                                <div class="badge-container is-larger absolute left top z-1">
+                                    <div class="callout badge badge-circle">
+                                        <div class="badge-inner secondary on-sale">
+                                            <span class="onsale">-@sp.Sale%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="image-tools absolute top show-on-hover right z-3"></div>
+                                <figure class="woocommerce-product-gallery__wrapper product-gallery-slider slider slider-nav-small mb-half"
+                                        data-flickity-options='{ "cellAlign": "center", "wrapAround": true, "autoPlay": false, "prevNextButtons":true, "adaptiveHeight": true, "imagesLoaded": true, "lazyLoad": 1, "dragThreshold" : 15, "pageDots": false, "rightToLeft": false }'>
+                                    <div class="woocommerce-product-gallery__image slide first">
+                                        <a href="https://shopwatch.vn/wp-content/uploads/2018/10/Seiko-SNK809K1-1.jpg">
+                                            <img width="510" height="510"
+                                                 src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%201000%201000%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E"
+                                                 class="lazy-load wp-post-image skip-lazy" alt="">
+                                        </a>
+                                    </div>
+                                </figure>
+                                <div class="image-tools absolute bottom left z-3">
+                                    <a href="#product-zoom"
+                                       class="zoom-button button is-outline circle icon tooltip hide-for-small"
+                                       title="Zoom"> <i class="icon-expand"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-info summary col-fit col entry-summary product-summary text-left form-flat">
+                            <h1 class="product-title product_title entry-title">
+                                @sp.TenSP
+                            </h1>
+                            <div class="is-divider small"></div>
+                            <div class="price-wrapper">
+                                <p class="price product-page-price price-on-sale">
+                                    <del>
+                                        <span class="woocommerce-Price-amount amount">
+                                            <bdi>
+                                                @{
+                                                    int dongia = (int)sp.DonGia;
+                                                    string dg = String.Format("{0:0,00}", dongia);
+                                                }
+                                                @dg&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+                                            </bdi>
+                                        </span>
+                                    </del>
+                                    <ins>
+                                        <span class="woocommerce-Price-amount amount">
+                                            <bdi>
+                                                @{
+                                                    float sale = ((float)(100 - sp.Sale) / 100);
+                                                    float dongia1 = (float)(sp.DonGia * sale);
+                                                    string dg1 = String.Format("{0:0,00}", dongia1);
+                                                }
+                                                @dg1&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+                                            </bdi>
+                                        </span>
+                                    </ins>
+                                </p>
+                            </div>
+                            <div class="product-short-description">
+                                <p>
+                                    @sp.GioiThieu
+                                </p>
+                            </div>
+                            <form class="cart" action="https://shopwatch.vn/seiko-snk809k2" method="post"
+                                  enctype='multipart/form-data'>
+                                <div class="sticky-add-to-cart-wrapper">
+                                    <div class="sticky-add-to-cart">
+                                        <div class="sticky-add-to-cart__product">
+                                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E"
+                                                 alt="" class="sticky-add-to-cart-img"
+                                                 data-lazy-src="https://shopwatch.vn/wp-content/uploads/2018/10/Seiko-SNK809K1-1-100x100.jpg" /><noscript>
+                                                <img src="https://shopwatch.vn/wp-content/uploads/2018/10/Seiko-SNK809K1-1-100x100.jpg"
+                                                     alt="" class="sticky-add-to-cart-img" />
+                                            </noscript>
+                                            <div class="product-title-small hide-for-small">
+                                                <strong>
+                                                    @sp.TenSP
+                                                </strong>
+                                            </div>
+                                            <div class="price-wrapper">
+                                                <p class="price product-page-price price-on-sale">
+                                                    <del>
+                                                        <span class="woocommerce-Price-amount amount">
+                                                            <bdi>
+                                                                @dg;&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+                                                            </bdi>
+                                                        </span>
+                                                    </del>
+                                                    <ins>
+                                                        <span class="woocommerce-Price-amount amount">
+                                                            <bdi>
+                                                                @dg1&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+                                                            </bdi>
+                                                        </span>
+                                                    </ins>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="quantity buttons_added form-flat">
+                                            <input type="button"
+                                                   value="-" class="minus button is-form"> <label class="screen-reader-text" for="quantity_5fd0739cf1f1b">
+                                                @sp.TenSP số lượng
+                                            </label> <input type="number"
+                                                            id="quantity_5fd0739cf1f1b" class="input-text qty text" step="1"
+                                                            min="1" max="" name="quantity" value="1" title="SL" size="4"
+                                                            placeholder="" inputmode="numeric" /> <input type="button"
+                                                                                                         value="+" class="plus button is-form">
+                                        </div> <button type="submit" name="add-to-cart" value="10210"
+                                                       class="single_add_to_cart_button button alt">
+                                            MUA NGAY
+                                        </button>
+                                        @*<input type="hidden" name="gtm4wp_id" value="10210" /> <input type="hidden" name="gtm4wp_name"
+                                    value="Seiko SNK809K2 (Tặng 1 bộ dây)" /> <input type="hidden"
+                                                                                     name="gtm4wp_sku" value="10210" /> <input type="hidden"
+                                                                                                                               name="gtm4wp_category" value="Đồng hồ Seiko" /> <input type="hidden"
+                                                                                                                                                                                      name="gtm4wp_price" value="2200000" /> <input type="hidden"
+                                                                                                                                                                                                                                    name="gtm4wp_stocklevel" value="" />*@
+                                    </div>
+                                </div>
+                            </form> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E"
+                                         data-lazy-src="https://shopwatch.vn/wp-content/uploads/2020/09/Untitled-3.jpg"><noscript>
+                                <img src="https://shopwatch.vn/wp-content/uploads/2020/09/Untitled-3.jpg">
+                            </noscript>
+                            @*<div class="product_meta">
+                            <span class="posted_in">
+                                Danh mục: <a href="https://shopwatch.vn/dong-ho-seiko/seiko-5" rel="tag">Seiko 5</a>,
+                                <a href="https://shopwatch.vn/dong-ho-nam" rel="tag">Đồng hồ nam</a>, <a href="https://shopwatch.vn/dong-ho-seiko" rel="tag">
+                                    Đồng hồ
+                                    Seiko
+                                </a>
+                            </span>
+                        </div>*@
+                            @*<div class="social-icons share-icons share-row relative">
+                            <a href="//www.facebook.com/sharer.php?u=https://shopwatch.vn/seiko-snk809k2"
+                               data-label="Facebook"
+                               onclick="window.open(this.href,this.title,'width=500,height=500,top=300px,left=300px'); return false;"
+                               rel="noopener noreferrer nofollow" target="_blank"
+                               class="icon button circle is-outline tooltip facebook"
+                               title="Share on Facebook"><i class="icon-facebook"></i></a><a href="mailto:enteryour@addresshere.com?subject=Seiko%20SNK809K2%20%28T%E1%BA%B7ng%201%20b%E1%BB%99%20d%C3%A2y%29&amp;body=Check%20this%20out:%20https://shopwatch.vn/seiko-snk809k2"
+                                                                                             rel="nofollow" class="icon button circle is-outline tooltip email"
+                                                                                             title="Email to a Friend"><i class="icon-envelop"></i></a><a href="//pinterest.com/pin/create/button/?url=https://shopwatch.vn/seiko-snk809k2&amp;media=https://shopwatch.vn/wp-content/uploads/2018/10/Seiko-SNK809K1-1.jpg&amp;description=Seiko%20SNK809K2%20%28T%E1%BA%B7ng%201%20b%E1%BB%99%20d%C3%A2y%29"
+                                                                                                                                                          onclick="window.open(this.href,this.title,'width=500,height=500,top=300px,left=300px'); return false;"
+                                                                                                                                                          rel="noopener noreferrer nofollow" target="_blank"
+                                                                                                                                                          class="icon button circle is-outline tooltip pinterest"
+                                                                                                                                                          title="Pin on Pinterest"><i class="icon-pinterest"></i></a><a href="//tumblr.com/widgets/share/tool?canonicalUrl=https://shopwatch.vn/seiko-snk809k2"
+                                                                                                                                                                                                                        target="_blank" class="icon button circle is-outline tooltip tumblr"
+                                                                                                                                                                                                                        onclick="window.open(this.href,this.title,'width=500,height=500,top=300px,left=300px'); return false;"
+                                                                                                                                                                                                                        rel="noopener noreferrer nofollow" title="Share on Tumblr">
+                                <i class="icon-tumblr"></i>
+                            </a>
+                        </div>*@
+                        </div>
+                        <div id="product-sidebar" class="mfp-hide">
+                            <div class="sidebar-inner"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-footer">
+                    <div class="container">
+                        <div class="woocommerce-tabs wc-tabs-wrapper container tabbed-content">
+                            <ul class="tabs wc-tabs product-tabs small-nav-collapse nav nav-uppercase nav-line-grow nav-left"
+                                role="tablist">
+                                <li class="description_tab active" id="tab-title-description" role="tab"
+                                    aria-controls="tab-description"> <a href="#tab-description"> Mô tả </a></li>
+                                <li class="ux_global_tab_tab " id="tab-title-ux_global_tab" role="tab"
+                                    aria-controls="tab-ux_global_tab">
+                                    <a href="#tab-ux_global_tab">
+                                        THÔNG SỐ VÀ
+                                        BẢO HÀNH
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="tab-panels">
+                                <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content active"
+                                     id="tab-description" role="tabpanel"
+                                     aria-labelledby="tab-title-description">
+                                    <p>
+                                        @sp.MoTa
+                                    </p>
+                                </div>
+                                <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--ux_global_tab panel entry-content "
+                                     id="tab-ux_global_tab" role="tabpanel"
+                                     aria-labelledby="tab-title-ux_global_tab">
+                                    <div class="table_1">
+                                        <h4 style="text-align: center;">
+                                            <span style="text-decoration: underline;">THÔNG TIN SẢN PHẨM</span>
+                                        </h4>
+                                        <table class="table" border="0" width="100%" cellpadding="0">
+                                            <tbody>
+                                                <tr class="tr-0" valign="top">
+                                                    <td class="title_charactestic" width="40%">Bảo hiểm:</td>
+                                                    <td class="content_charactestic">
+                                                        Phát hiện Fake đền gấp 10
+                                                        lần
+                                                    </td>
+                                                </tr>
+                                                <tr class="tr-1" valign="top">
+                                                    <td class="title_charactestic" width="40%">Bảo hành:</td>
+                                                    <td class="content_charactestic">
+                                                        1 năm miễn phí - 5 năm hậu
+                                                        mãi
+                                                    </td>
+                                                </tr>
+                                                <tr class="tr-0" valign="top">
+                                                    <td class="title_charactestic" width="40%">
+                                                        Xuất xứ:
+                                                    </td>
+                                                    <td class="content_charactestic">@sp.XuatXu</td>
+                                                </tr>
+                                                <tr class="tr-1" valign="top">
+                                                    <td class="title_charactestic" width="40%">Thương hiệu:</td>
+                                                    <td class="content_charactestic">@ncc.TenNCC</td>
+                                                </tr>
+
+                                                <tr class="tr-0" valign="top">
+                                                    <td class="title_charactestic" width="40%">
+                                                        Danh mục:
+                                                    </td>
+                                                    <td class="content_charactestic">@dm.TenDM</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="table_2">
+                                        <h4 style="text-align: center;">
+                                            <span style="text-decoration: underline;">THÔNG SỐ KỸ THUẬT</span>
+                                        </h4>
+                                        <table class="table" border="0" width="100%" cellpadding="0">
+                                            <tbody>
+                                                <tr class="tr-1" valign="top">
+                                                    <td class="title_charactestic" width="40%">Kiểu máy:</td>
+                                                    <td class="content_charactestic">@sp.KieuMay</td>
+                                                </tr>
+                                                <tr class="tr-1" valign="top">
+                                                    <td class="title_charactestic" width="40%">Kích cỡ:</td>
+                                                    <td class="content_charactestic">@sp.KichThuoc mm</td>
+                                                </tr>
+                                                <tr class="tr-1" valign="top">
+                                                    <td class="title_charactestic" width="40%">
+                                                        Chất liệu vỏ:
+                                                    </td>
+                                                    <td class="content_charactestic">@sp.ChatLieuVo</td>
+                                                </tr>
+                                                <tr class="tr-0" valign="top">
+                                                    <td class="title_charactestic" width="40%">
+                                                        Chất liệu dây:
+                                                    </td>
+                                                    <td class="content_charactestic">@sp.ChatLieuDay</td>
+                                                </tr>
+                                                <tr class="tr-1" valign="top">
+                                                    <td class="title_charactestic" width="40%">
+                                                        Chất liệu kính:
+                                                    </td>
+                                                    <td class="content_charactestic">@sp.ChatLieuKinh</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div> <br style="clear:both;" />
+                                    <h3 style="text-align: center;">
+                                        <span style="text-decoration: underline;">
+                                            CHÍNH SÁCH BẢO HÀNH TẠI
+                                            SHOPWATCH
+                                        </span>
+                                    </h3>
+                                    <ol>
+                                        <li>
+                                            Thời gian bảo hành: <span style="color: #ff0000;">
+                                                <strong>
+                                                    5 NĂM TỪ
+                                                    NGÀY MUA SẢN PHẨM
+                                                </strong>
+                                            </span> ( áp dụng cho mọi sản phẩm
+                                            đồng hồ tại ShopWatch )
+                                        </li>
+                                        <li>
+                                            Địa chỉ bảo hành: 218 Lê Duẩn – Đống Đa – Hà Nội ( Showroom Center )
+                                        </li>
+                                        <li>Thời gian trả bảo hành: Từ 3 – 7 ngày</li>
+                                        <li>Chính sách bảo hành cụ thể:</li>
+                                    </ol>
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td width="293">
+                                                    <p style="text-align: center;">
+                                                        <span style="color: #ff0000; font-size: 120%;">
+                                                            <strong>
+                                                                BẢO
+                                                                HÀNH
+                                                            </strong>
+                                                        </span>
+                                                    </p>
+                                                </td>
+                                                <td style="text-align: center;" width="151">
+                                                    <span style="color: #ff0000; font-size: 120%;">
+                                                        <strong>
+                                                            MIỄN
+                                                            PHÍ
+                                                        </strong>
+                                                    </span>
+                                                </td>
+                                                <td width="170">
+                                                    <p style="text-align: center;">
+                                                        <span style="color: #ff0000; font-size: 120%;">
+                                                            <strong>
+                                                                HỖ
+                                                                TRỢ
+                                                            </strong>
+                                                        </span>
+                                                    </p>
+                                                    <p style="text-align: center;">
+                                                        <span style="color: #ff0000; font-size: 120%;">
+                                                            <strong>
+                                                                50%
+                                                                CHI PHÍ
+                                                            </strong>
+                                                        </span>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: left;" width="293">
+                                                    <span style="font-size: 120%;">Thay pin</span>
+                                                </td>
+                                                <td style="text-align: center;" width="151">
+                                                    <img class="alignnone wp-image-29202 size-full"
+                                                         src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2025%2025'%3E%3C/svg%3E"
+                                                         alt="" width="25" height="25"
+                                                         data-lazy-src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png" /><noscript>
+                                                        <img class="alignnone wp-image-29202 size-full"
+                                                             src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png"
+                                                             alt="" width="25" height="25" />
+                                                    </noscript>
+                                                </td>
+                                                <td style="text-align: center;" width="170"></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: left;" width="293">
+                                                    <span style="font-size: 120%;">
+                                                        Đồng hồ chạy nhanh –
+                                                        chậm
+                                                    </span>
+                                                </td>
+                                                <td width="151">
+                                                    <p style="text-align: center;">
+                                                        <img class="alignnone wp-image-29202 size-full"
+                                                             src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2025%2025'%3E%3C/svg%3E"
+                                                             alt="" width="25" height="25"
+                                                             data-lazy-src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png" /><noscript>
+                                                            <img class="alignnone wp-image-29202 size-full"
+                                                                 src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png"
+                                                                 alt="" width="25" height="25" />
+                                                        </noscript>
+                                                    </p>
+                                                </td>
+                                                <td width="170"></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: left;" width="293">
+                                                    <span style="font-size: 120%;">Kẹt động cơ</span>
+                                                </td>
+                                                <td width="151">
+                                                    <p style="text-align: center;">
+                                                        <img class="alignnone wp-image-29202 size-full"
+                                                             src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2025%2025'%3E%3C/svg%3E"
+                                                             alt="" width="25" height="25"
+                                                             data-lazy-src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png" /><noscript>
+                                                            <img class="alignnone wp-image-29202 size-full"
+                                                                 src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png"
+                                                                 alt="" width="25" height="25" />
+                                                        </noscript>
+                                                    </p>
+                                                </td>
+                                                <td width="170"></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: left;" width="293">
+                                                    <span style="font-size: 120%;">
+                                                        Đồng hồ bị ngưng đột
+                                                        ngột
+                                                    </span>
+                                                </td>
+                                                <td width="151">
+                                                    <p style="text-align: center;">
+                                                        <img class="alignnone wp-image-29202 size-full"
+                                                             src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2025%2025'%3E%3C/svg%3E"
+                                                             alt="" width="25" height="25"
+                                                             data-lazy-src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png" /><noscript>
+                                                            <img class="alignnone wp-image-29202 size-full"
+                                                                 src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png"
+                                                                 alt="" width="25" height="25" />
+                                                        </noscript>
+                                                    </p>
+                                                </td>
+                                                <td width="170"></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: left;" width="293">
+                                                    <span style="font-size: 120%;">Nhiễm từ</span>
+                                                </td>
+                                                <td width="151">
+                                                    <p style="text-align: center;">
+                                                        <img class="alignnone wp-image-29202 size-full"
+                                                             src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2025%2025'%3E%3C/svg%3E"
+                                                             alt="" width="25" height="25"
+                                                             data-lazy-src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png" /><noscript>
+                                                            <img class="alignnone wp-image-29202 size-full"
+                                                                 src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png"
+                                                                 alt="" width="25" height="25" />
+                                                        </noscript>
+                                                    </p>
+                                                </td>
+                                                <td width="170"></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: left;" width="293">
+                                                    <span style="font-size: 120%;">Vào nước – Hấp hơi</span>
+                                                </td>
+                                                <td width="151">
+                                                    <p style="text-align: center;">
+                                                        <img class="alignnone wp-image-29202 size-full"
+                                                             src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2025%2025'%3E%3C/svg%3E"
+                                                             alt="" width="25" height="25"
+                                                             data-lazy-src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png" /><noscript>
+                                                            <img class="alignnone wp-image-29202 size-full"
+                                                                 src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png"
+                                                                 alt="" width="25" height="25" />
+                                                        </noscript>
+                                                    </p>
+                                                </td>
+                                                <td width="170"></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: left;" width="293">
+                                                    <span style="font-size: 120%;">
+                                                        Thay mặt kính ( trước – sau
+                                                        )
+                                                    </span>
+                                                </td>
+                                                <td width="151"></td>
+                                                <td width="170">
+                                                    <p style="text-align: center;">
+                                                        <img class="alignnone wp-image-29202 size-full"
+                                                             src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2025%2025'%3E%3C/svg%3E"
+                                                             alt="" width="25" height="25"
+                                                             data-lazy-src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png" /><noscript>
+                                                            <img class="alignnone wp-image-29202 size-full"
+                                                                 src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png"
+                                                                 alt="" width="25" height="25" />
+                                                        </noscript>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: left;" width="293">
+                                                    <span style="font-size: 120%;">Đánh bóng mặt kính</span>
+                                                </td>
+                                                <td width="151"></td>
+                                                <td width="170">
+                                                    <p style="text-align: center;">
+                                                        <img class="alignnone wp-image-29202 size-full"
+                                                             src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2025%2025'%3E%3C/svg%3E"
+                                                             alt="" width="25" height="25"
+                                                             data-lazy-src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png" /><noscript>
+                                                            <img class="alignnone wp-image-29202 size-full"
+                                                                 src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png"
+                                                                 alt="" width="25" height="25" />
+                                                        </noscript>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: left;" width="293">
+                                                    <span style="font-size: 120%;">Dạ quang yếu</span>
+                                                </td>
+                                                <td width="151"></td>
+                                                <td width="170">
+                                                    <p style="text-align: center;">
+                                                        <img class="alignnone wp-image-29202 size-full"
+                                                             src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2025%2025'%3E%3C/svg%3E"
+                                                             alt="" width="25" height="25"
+                                                             data-lazy-src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png" /><noscript>
+                                                            <img class="alignnone wp-image-29202 size-full"
+                                                                 src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png"
+                                                                 alt="" width="25" height="25" />
+                                                        </noscript>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: left;" width="293">
+                                                    <span style="font-size: 120%;">Rơi, mất chốt</span>
+                                                </td>
+                                                <td width="151"></td>
+                                                <td width="170">
+                                                    <p style="text-align: center;">
+                                                        <img class="alignnone wp-image-29202 size-full"
+                                                             src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2025%2025'%3E%3C/svg%3E"
+                                                             alt="" width="25" height="25"
+                                                             data-lazy-src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png" /><noscript>
+                                                            <img class="alignnone wp-image-29202 size-full"
+                                                                 src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png"
+                                                                 alt="" width="25" height="25" />
+                                                        </noscript>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: left;" width="293">
+                                                    <span style="font-size: 120%;">Thay dây đeo</span>
+                                                </td>
+                                                <td width="151"></td>
+                                                <td width="170">
+                                                    <p style="text-align: center;">
+                                                        <img class="alignnone wp-image-29202 size-full"
+                                                             src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2025%2025'%3E%3C/svg%3E"
+                                                             alt="" width="25" height="25"
+                                                             data-lazy-src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png" /><noscript>
+                                                            <img class="alignnone wp-image-29202 size-full"
+                                                                 src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png"
+                                                                 alt="" width="25" height="25" />
+                                                        </noscript>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: left;" width="293">
+                                                    <span style="font-size: 120%;">
+                                                        Thay thế linh kiện do người
+                                                        dùng va đập, làm rơi
+                                                    </span>
+                                                </td>
+                                                <td width="151"></td>
+                                                <td width="170">
+                                                    <p style="text-align: center;">
+                                                        <img class="alignnone wp-image-29202 size-full"
+                                                             src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2025%2025'%3E%3C/svg%3E"
+                                                             alt="" width="25" height="25"
+                                                             data-lazy-src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png" /><noscript>
+                                                            <img class="alignnone wp-image-29202 size-full"
+                                                                 src="https://shopwatch.vn/wp-content/uploads/2020/09/red-check-e1599628336995.png"
+                                                                 alt="" width="25" height="25" />
+                                                        </noscript>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="related related-products-wrapper product-section">
+                            <h3 class="product-section-title container-width product-section-title-related pt-half pb-half uppercase">
+                                Sản phẩm tương tự
+                            </h3>
+                            <div class="row equalize-box large-columns-4 medium-columns-3 small-columns-2 row-small slider row-slider slider-nav-reveal slider-nav-push"
+                                 data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'>
+                                @foreach (var item in listSP)
+                                {
+                                    <div class="product-small col has-hover product type-product post-8194 status-publish instock product_cat-dong-ho-seiko product_cat-seiko-chronograph product_cat-dong-ho-nam has-post-thumbnail sale shipping-taxable purchasable product-type-simple">
+                                        <div class="col-inner">
+                                            <div class="badge-container absolute left top z-1">
+                                                <div class="callout badge badge-circle">
+                                                    <div class="badge-inner secondary on-sale">
+                                                        <span class="onsale">-@item.Sale%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="product-small box ">
+                                                <div class="box-image">
+                                                    <div class="image-fade_in_back">
+                                                        <a href="@Url.Action("Detail","Home",new { id=item.ID})">
+                                                            <img width="247" height="247" src="~/image/@item.Avatar" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="image-tools is-small top right show-on-hover">
+                                                    </div>
+                                                    <div class="image-tools is-small hide-for-small bottom left show-on-hover">
+                                                    </div>
+                                                    <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
+                                                    </div>
+                                                </div>
+                                                <div class="box-text box-text-products text-center grid-style-2">
+                                                    <div class="title-wrapper">
+                                                        <p class="name product-title woocommerce-loop-product__title">
+                                                            <a href="@Url.Action("Detail","Home",new { id=item.ID})"
+                                                               class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                                                                @item.TenSP
+                                                            </a>
+                                                        </p>
+                                                    </div>
+                                                    <div class="price-wrapper">
+                                                        <span class="price">
+                                                            <del>
+                                                                <span class="woocommerce-Price-amount amount">
+                                                                    <bdi>
+                                                                        @{
+                                                                            int dongiaSame = (int)item.DonGia;
+                                                                            string dgs = String.Format("{0:0,00}", dongiaSame);
+                                                                        }
+                                                                        @dgs&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+                                                                    </bdi>
+                                                                </span>
+                                                            </del>
+                                                            <ins>
+                                                                <span class="woocommerce-Price-amount amount">
+                                                                    <bdi>
+                                                                        @{
+                                                                            float sale1 = ((float)(100 - item.Sale) / 100);
+                                                                            float dongiaSame1 = (float)(item.DonGia * sale1);
+                                                                            string dgs1 = String.Format("{0:0,00}", dongiaSame1);
+                                                                        }
+                                                                        @dgs1&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+                                                                    </bdi>
+                                                                </span>
+                                                            </ins>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div id="reviews" class="woocommerce-Reviews">
+                <div id="comments">
+                    <div class="woocommerce-Reviews-title"> Review Seiko SNK809K2 (Tặng 1 bộ dây)</div>
+                    <div class="star_box">
+                        <div class="star_box_left">
+                            <div class="star-average"></div>
+                            <div class="reviews_bar">
+                                <div class="devvn_review_row">
+                                    <span class="devvn_stars_value">
+                                        5<i class="devvn-star"></i>
+                                    </span> <span class="devvn_rating_bar">
+                                        <span style="background-color: #eee" class="devvn_scala_rating">
+                                            <span class="devvn_perc_rating"
+                                                  style="width: 0%; background-color: #f5a623"></span>
+                                        </span>
+                                    </span> <span class="devvn_num_reviews"><b>0%</b> | 0 đánh giá</span>
+                                </div>
+                                <div class="devvn_review_row">
+                                    <span class="devvn_stars_value">
+                                        4<i class="devvn-star"></i>
+                                    </span> <span class="devvn_rating_bar">
+                                        <span style="background-color: #eee" class="devvn_scala_rating">
+                                            <span class="devvn_perc_rating"
+                                                  style="width: 0%; background-color: #f5a623"></span>
+                                        </span>
+                                    </span> <span class="devvn_num_reviews"><b>0%</b> | 0 đánh giá</span>
+                                </div>
+                                <div class="devvn_review_row">
+                                    <span class="devvn_stars_value">
+                                        3<i class="devvn-star"></i>
+                                    </span> <span class="devvn_rating_bar">
+                                        <span style="background-color: #eee" class="devvn_scala_rating">
+                                            <span class="devvn_perc_rating"
+                                                  style="width: 0%; background-color: #f5a623"></span>
+                                        </span>
+                                    </span> <span class="devvn_num_reviews"><b>0%</b> | 0 đánh giá</span>
+                                </div>
+                                <div class="devvn_review_row">
+                                    <span class="devvn_stars_value">
+                                        2<i class="devvn-star"></i>
+                                    </span> <span class="devvn_rating_bar">
+                                        <span style="background-color: #eee" class="devvn_scala_rating">
+                                            <span class="devvn_perc_rating"
+                                                  style="width: 0%; background-color: #f5a623"></span>
+                                        </span>
+                                    </span> <span class="devvn_num_reviews"><b>0%</b> | 0 đánh giá</span>
+                                </div>
+                                <div class="devvn_review_row">
+                                    <span class="devvn_stars_value">
+                                        1<i class="devvn-star"></i>
+                                    </span> <span class="devvn_rating_bar">
+                                        <span style="background-color: #eee" class="devvn_scala_rating">
+                                            <span class="devvn_perc_rating"
+                                                  style="width: 0%; background-color: #f5a623"></span>
+                                        </span>
+                                    </span> <span class="devvn_num_reviews"><b>0%</b> | 0 đánh giá</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="star_box_right">
+                            <a href="javascript:void(0)" title="Đánh giá ngay"
+                               class="btn-reviews-now">Đánh giá ngay</a>
+                        </div>
+                    </div>
+                    <div id="review_form_wrapper" class="mfp-hide">
+                        <div id="review_form">
+                            <div id="respond" class="comment-respond">
+                                <span id="reply-title"
+                                      class="comment-reply-title">
+                                    Đánh giá Seiko SNK809K2 (Tặng 1 bộ dây)
+                                    <small>
+                                        <a rel="nofollow" id="cancel-comment-reply-link"
+                                           href="/seiko-snk809k2#respond"
+                                           style="display:none;">Hủy</a>
+                                    </small>
+                                </span>
+                                <form action="https://shopwatch.vn/wp-comments-post.php" method="post"
+                                      id="commentform" class="comment-form" novalidate>
+                                    <div class="comment-form-comment">
+                                        <textarea id="comment" name="comment"
+                                                  cols="45" rows="8" minlength="10" required
+                                                  placeholder="Mời bạn chia sẻ thêm một số cảm nhận..."></textarea>
+                                    </div>
+                                    <div class="wrap-attaddsend">
+                                        <div class="review-attach">
+                                            <span class="btn-attach devvn_insert_attach">
+                                                Gửi ảnh thực
+                                                tế
+                                            </span>
+                                        </div><span id="countContent">
+                                            0 ký tự (Tối thiểu
+                                            10)
+                                        </span>
+                                    </div>
+                                    <div class="list_attach">
+                                        <ul class="devvn_attach_view"></ul><span class="devvn_insert_attach"><i class="devvn-plus">+</i></span>
+                                    </div>
+                                    <div class="comment-form-rating">
+                                        <label for="rating">
+                                            Bạn cảm thấy thế
+                                            nào về sản phẩm? (Chọn sao)
+                                        </label><select name="rating"
+                                                        id="rating" required>
+                                            <option value="">Xếp hạng&hellip;</option>
+                                            <option value="5">Rất tốt</option>
+                                            <option value="4">Tốt</option>
+                                            <option value="3">Trung bình</option>
+                                            <option value="2">Không tệ</option>
+                                            <option value="1">Rất tệ</option>
+                                        </select>
+                                    </div>
+                                    <div class="form_row_reviews">
+                                        <p class="comment-form-author">
+                                            <input id="author" name="author"
+                                                   type="text" value="" size="30" required
+                                                   placeholder="Họ tên (bắt buộc)" />
+                                        </p>
+                                        <p class="comment-form-phone">
+                                            <input id="phone" name="phone"
+                                                   type="text" size="30" required
+                                                   placeholder="Số điện thoại (bắt buộc)" />
+                                        </p>
+                                        <p class="comment-form-email">
+                                            <input id="email" name="email"
+                                                   type="email" value="" size="30" placeholder="Email " />
+                                        </p>
+                                    </div>
+                                    <p class="form-submit">
+                                        <input name="submit" type="submit" id="submit"
+                                               class="submit" value="Gửi đánh giá" /> <input type='hidden'
+                                                                                             name='comment_post_ID' value='10210' id='comment_post_ID' />
+                                        <input type='hidden' name='comment_parent' id='comment_parent'
+                                               value='0' />
+                                    </p>
+                                </form>
+                            </div>
+                        </div> <button type="button" data-fancybox-close=""
+                                       class="fancybox-button fancybox-close-small" title="Close">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="woocommerce-noreviews">Chưa có đánh giá nào.</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="devvn_prod_cmt " id="hoi-dap">
+                <strong>Hỏi đáp</strong>
+                <div class="devvn_cmt_form">
+                    <form action="" method="post" id="devvn_cmt">
+                        <div class="devvn_cmt_input">
+                            <textarea placeholder="Mời bạn tham gia thảo luận, vui lòng nhập tiếng Việt có dấu."
+                                      name="devvn_cmt_content" id="devvn_cmt_content" minlength="20"></textarea>
+                        </div>
+                        <div class="devvn_cmt_form_bottom ">
+                            <div class="devvn_cmt_radio">
+                                <label>
+                                    <input name="devvn_cmt_gender"
+                                           type="radio" value="male" checked /> <span>Anh</span>
+                                </label>
+                                <label>
+                                    <input name="devvn_cmt_gender" type="radio" value="female" />
+                                    <span>Chị</span>
+                                </label>
+                            </div>
+                            <div class="devvn_cmt_input">
+                                <input name="devvn_cmt_name" type="text"
+                                       id="devvn_cmt_name" placeholder="Họ tên (bắt buộc)" />
+                            </div>
+                            <div class="devvn_cmt_submit">
+                                <button type="submit"
+                                        id="devvn_cmt_submit">
+                                    Gửi
+                                </button> <input type="hidden" value="10210"
+                                                 name="post_ID"> <input type="hidden" value="" name="cmt_parent_id">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="devvn_cmt_list">
+                    <div class="devvn_cmt_list_header">
+                        <div class="devvn_cmt_lheader_left">
+                            <span class="devvn_cmt_count">
+                                6 bình
+                                luận
+                            </span>
+                        </div>
+                        <div class="devvn_cmt_lheader_right">
+                            <div class="devvn_cmt_search_box">
+                                <form action="" method="post" id="devvn_cmt_search_form">
+                                    <input type="text"
+                                           name="devvn_cmt_search" id="devvn_cmt_search"
+                                           placeholder="Tìm theo nội dung" /> <input type="hidden"
+                                                                                     value="10210" name="post_ID"> <button type="submit devvn-icon-search">
+                                        Tìm kiếm
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="devvn_cmt_list_box">
+                        <ul itemscope="" itemtype="https://schema.org/FAQPage">
+                            <li>
+                                <div class="devvn_cmt_box">
+                                    <span>D</span> <strong>Đạt</strong>
+                                    <div class="devvn_cmt_box_content">
+                                        <p>còn hàng k v shop</p>
+                                    </div>
+                                    <div class="devvn_cmt_tool">
+                                        <span>
+                                            <a href="javascript:void(0)"
+                                               class="devvn_cmt_reply" data-cmtid="6504"
+                                               data-authorname="Đạt">Trả lời</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="devvn_cmt_box">
+                                    <span>P</span> <strong>phương</strong>
+                                    <div class="devvn_cmt_box_content">
+                                        <p>
+                                            ad ơi, e ở trong tphcm máy e còn bảo hành mà e đưa ra các tiệm uy
+                                            tín(Hải Triều, Xwatch) trong tphcm bảo dưỡng thì còn được bảo
+                                            hanhf không ạ???
+                                        </p>
+                                    </div>
+                                    <div class="devvn_cmt_tool">
+                                        <span>
+                                            <a href="javascript:void(0)"
+                                               class="devvn_cmt_reply" data-cmtid="4885"
+                                               data-authorname="phương">Trả lời</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="devvn_cmt_box">
+                                    <span>N</span> <strong>Ngọc</strong>
+                                    <div class="devvn_cmt_box_content">
+                                        <p>
+                                            chào a sao máy seiko 5 qđ của e không có thông tin về nơi sản
+                                            xuất movement vậy a????
+                                        </p>
+                                    </div>
+                                    <div class="devvn_cmt_tool">
+                                        <span>
+                                            <a href="javascript:void(0)"
+                                               class="devvn_cmt_reply" data-cmtid="4834"
+                                               data-authorname="Ngọc">Trả lời</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+                                <div class="devvn_cmt_box">
+                                    <span>B</span> <strong>bảo</strong>
+                                    <div class="devvn_cmt_box_content" itemprop="name">
+                                        <p>
+                                            ad ơi cho mình hỏi, mình mua con seiko 5 quân đội màu đen hồi
+                                            tháng 12 năm 2018. bây giờ còn bảo hành không???
+                                        </p>
+                                    </div>
+                                    <div class="devvn_cmt_tool">
+                                        <span>
+                                            <a href="javascript:void(0)"
+                                               class="devvn_cmt_reply" data-cmtid="4787"
+                                               data-authorname="bảo">Trả lời</a>
+                                        </span>
+                                    </div>
+                                </div>
+                                <ul class="devvn_cmt_child">
+                                    <li itemprop="acceptedAnswer" itemscope=""
+                                        itemtype="https://schema.org/Answer">
+                                        <div class="devvn_cmt_box">
+                                            <span>A</span>
+                                            <strong>adminphuong</strong> <b class="qtv">Quản trị viên</b>
+                                            <div class="devvn_cmt_box_content" itemprop="text">
+                                                <p>
+                                                    Chào a ạ! Anh mua sản phẩm bên e thì sẽ còn gói bảo hành
+                                                    hậu mãi a nha
+                                                </p>
+                                            </div>
+                                            <div class="devvn_cmt_tool">
+                                                <span>
+                                                    <a href="javascript:void(0)"
+                                                       class="devvn_cmt_reply" data-cmtid="4787"
+                                                       data-authorname="adminphuong">Trả lời</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+                                <div class="devvn_cmt_box">
+                                    <span>T</span> <strong>Tài</strong>
+                                    <div class="devvn_cmt_box_content" itemprop="name">
+                                        <p>
+                                            Chào a cho em xem hình của đh Seiko 2tr2 do anh chụp đc không ạ
+                                            hay anh có thể cho em xem giấy chứng nhận đc ko ạ .Cảm ơn a
+                                            nhiều.
+                                        </p>
+                                    </div>
+                                    <div class="devvn_cmt_tool">
+                                        <span>
+                                            <a href="javascript:void(0)"
+                                               class="devvn_cmt_reply" data-cmtid="4088"
+                                               data-authorname="Tài">Trả lời</a>
+                                        </span>
+                                    </div>
+                                </div>
+                                <ul class="devvn_cmt_child">
+                                    <li itemprop="acceptedAnswer" itemscope=""
+                                        itemtype="https://schema.org/Answer">
+                                        <div class="devvn_cmt_box">
+                                            <span>A</span>
+                                            <strong>adminphuong</strong> <b class="qtv">Quản trị viên</b>
+                                            <div class="devvn_cmt_box_content" itemprop="text">
+                                                <p>
+                                                    Chào anh ạ! Hiện seiko bên e là hàng xách tay chính hãng
+                                                    ạ!<br /> Anh muốn tham khảo hình ảnh có thể ad zalo bên
+                                                    e được không ạ! 0975592299 ạ
+                                                </p>
+                                            </div>
+                                            <div class="devvn_cmt_tool">
+                                                <span>
+                                                    <a href="javascript:void(0)"
+                                                       class="devvn_cmt_reply" data-cmtid="4088"
+                                                       data-authorname="adminphuong">Trả lời</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <nav class="devvn_cmt_paged woocommerce-pagination">
+                        <ul class='page-numbers'>
+                            <li><span aria-current="page" class="page-numbers current">1</span></li>
+                            <li><a class="page-numbers" href="#tcomment-page=2">2</a></li>
+                            <li><a class="next page-numbers" href="#tcomment-page=2">&rarr;</a></li>
+                        </ul>
+                    </nav>
+                    <script type="text/template" id="tmpl-reply-devvn-cmt">
+                        <form action="" method="post" id="devvn_cmt_reply">
+                            <div class="devvn_cmt_input">
+                                <textarea placeholder="" name="devvn_cmt_replycontent" id="devvn_cmt_replycontent" minlength="20">{{{ data.authorname }}}</textarea>
+                            </div>
+                            <div class="devvn_cmt_form_bottom">
+                                <div class="devvn_cmt_radio">
+                                    <label>
+                                        <input name="devvn_cmt_replygender" type="radio" value="male" checked />
+                                        <span>Anh</span>
+                                    </label>
+                                    <label>
+                                        <input name="devvn_cmt_replygender" type="radio" value="female" />
+                                        <span>Chị</span>
+                                    </label>
+                                </div>
+                                <div class="devvn_cmt_input">
+                                    <input name="devvn_cmt_replyname" type="text" id="devvn_cmt_replyname" placeholder="Họ tên (bắt buộc)" />
+                                </div>
+                                <div class="devvn_cmt_submit">
+                                    <button type="submit" id="devvn_cmt_replysubmit">Gửi</button>
+                                    <input type="hidden" value="10210" name="post_ID">
+                                    <input type="hidden" value="{{{ data.parent_id }}}" name="cmt_parent_id">
+                                </div>
+                            </div>
+                            <a href="javascript:void(0)" class="devvn_cancel_cmt">×</a>
+                        </form>
+                    </script>
+                </div>
+            </div>*@
+        <div style="padding:0 16%">
+            <div class="fb-comments" data-href="https://localhost:44323/" data-numposts="5" data-width="100%"></div>
+        </div>
+        </div>
+    </div>
+</main>
