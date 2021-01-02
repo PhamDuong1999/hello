@@ -81,3 +81,7 @@ C:\Users\phamd\Desktop\ASP\ASP\obj\Debug\ASP.csproj.CoreCompileInputs.cache
 C:\Users\phamd\Desktop\ASP\ASP\obj\Debug\ASP.csproj.CopyComplete
 C:\Users\phamd\Desktop\ASP\ASP\obj\Debug\ASP.dll
 C:\Users\phamd\Desktop\ASP\ASP\obj\Debug\ASP.pdb
+C:\Users\phamd\Desktop\ASP\ASP\bin\PagedList.dll
+C:\Users\phamd\Desktop\ASP\ASP\bin\PagedList.Mvc.dll
+C:\Users\phamd\Desktop\ASP\ASP\bin\PagedList.xml
+C:\Users\phamd\Desktop\ASP\ASP\bin\PagedList.Mvc.xml

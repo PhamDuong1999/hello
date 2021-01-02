@@ -1,10 +1,10 @@
 ﻿@using ASP.Models
 @model List<ASP.Models.NhaCungCap>
 
-@{ 
-    Layout = null;
+@{
+
     var dm = ViewData["dm"] as List<DanhMuc>;
-    
+
 }
 <header id="header" class="header has-sticky sticky-jump">
     <div class="header-wrapper">
@@ -18,7 +18,7 @@
                 <div class="flex-col hide-for-medium flex-center">
                     <ul class="nav nav-center nav-small nav-divided"></ul>
                 </div>
-              
+
                 <div class="flex-col hide-for-medium flex-right">
                     <ul class="nav top-bar-nav nav-right nav-small nav-divided">
                         <li class="header-divider"></li>
@@ -87,23 +87,22 @@
                         <li class="header-search-form search-form html relative has-icon">
                             <div class="header-search-form-wrapper">
                                 <div class="searchform-wrapper ux-search-box relative is-normal">
-                                    <form role="search" method="get" class="searchform" action="https://shopwatch.vn/">
+                                    <form role="search" method="get" class="searchform" action="/home/search">
                                         <div class="flex-row relative">
                                             <div class="flex-col flex-grow">
-                                                <label class="screen-reader-text"
-                                                       for="woocommerce-product-search-field-0">Tìm kiếm:</label> <input type="search" id="woocommerce-product-search-field-0"
-                                                                                                                         class="search-field mb-0" placeholder="Tìm kiếm&hellip;" value=""
-                                                                                                                         name="s" /> <input type="hidden" name="post_type" value="product" />
+                                                <label class="screen-reader-text" for="woocommerce-product-search-field-0">Tìm kiếm:</label>
+                                                <input type="search" id="search" class="search-field mb-0" placeholder="Tìm kiếm..." value="" name="key" />
+                                                @*<input type="hidden" name="post_type" value="product" />*@
                                             </div>
                                             <div class="flex-col">
-                                                <button type="submit" value="Tìm kiếm"
-                                                        class="ux-search-submit submit-button secondary button icon mb-0"
+                                                <button type="submit" value="Tìm kiếm" @*onclick="Search()"*@
+                                                        class="submit-button"
                                                         aria-label="Submit">
                                                     <i class="icon-search"></i>
                                                 </button>
                                             </div>
                                         </div>
-                                        <div class="live-search-results text-left z-top"></div>
+                                        @*<div class="live-search-results text-left z-top"></div>*@
                                     </form>
                                 </div>
                             </div>
@@ -184,7 +183,7 @@
                                 {
                                     <li id="menu-item-14488"
                                         class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-14488">
-                                        <a href="#">@item.TenNCC</a>
+                                        <a href="@Url.Action("ListSanPhamTH","Home",new {id=item.ID,op=-1})">@item.TenNCC</a>
                                     </li>
                                 }
 
@@ -199,7 +198,7 @@
                                 {
                                     <li id="menu-item-8098"
                                         class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-8098">
-                                        <a href="#">@item.TenDM</a>
+                                        <a href="@Url.Action("ListSanPhamDM","Home",new {id=item.ID,op=-1})">@item.TenDM</a>
                                     </li>
                                 }
 
@@ -219,3 +218,10 @@
         </div>
     </div>
 </header>
+<script>
+    //function Search(e) {
+    //    var key = $('#search').val();
+    //    e.preventDefault()
+    //    $(location).attr('href', `/Home/Sreach?key=${key}`)
+    //}
+</script>

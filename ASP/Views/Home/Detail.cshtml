@@ -5,6 +5,7 @@
     var listSP = ViewData["listSP"] as List<SanPham>;
     var ncc = ViewData["ncc"] as NhaCungCap;
     var dm = ViewData["dm"] as DanhMuc;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <main id="main" class="">
     <div class="shop-container">
@@ -80,7 +81,7 @@
                                     @sp.GioiThieu
                                 </p>
                             </div>
-                            <form class="cart" action="https://shopwatch.vn/seiko-snk809k2" method="post"
+                            <form class="cart" action="#" method="post"
                                   enctype='multipart/form-data'>
                                 <div class="sticky-add-to-cart-wrapper">
                                     <div class="sticky-add-to-cart">
@@ -88,7 +89,7 @@
                                             <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E"
                                                  alt="" class="sticky-add-to-cart-img"
                                                  data-lazy-src="https://shopwatch.vn/wp-content/uploads/2018/10/Seiko-SNK809K1-1-100x100.jpg" /><noscript>
-                                                <img src="https://shopwatch.vn/wp-content/uploads/2018/10/Seiko-SNK809K1-1-100x100.jpg"
+                                                <img src="@sp.Avatar"
                                                      alt="" class="sticky-add-to-cart-img" />
                                             </noscript>
                                             <div class="product-title-small hide-for-small">
@@ -101,7 +102,7 @@
                                                     <del>
                                                         <span class="woocommerce-Price-amount amount">
                                                             <bdi>
-                                                                @dg;&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+                                                                @dg&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span>
                                                             </bdi>
                                                         </span>
                                                     </del>

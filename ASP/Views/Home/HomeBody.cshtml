@@ -3,6 +3,7 @@
 @{
     var spSale = ViewData["spSale"] as List<SanPham>;
     var sp = ViewData["sp"] as List<SanPham>;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <main id="main" class="">
     <div id="content" class="content-area page-wrapper" role="main">
@@ -45,19 +46,14 @@
                         {
                             <div id="col-389035322" class="col medium-3 small-6 large-3">
                                 <div class="col-inner">
-                                    <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_754866892">
-                                        <a class="" href="#" target="_blank"
+                                    <div class="img has-hover x md-x lg-x y md-y lg-y">
+                                        <a class="" href="@Url.Action("ListSanPhamTH","Home",new { id=item.ID})" target="_blank"
                                            rel="noopener noreferrer">
                                             <div class="img-inner image-cover dark"
                                                  style="padding-top:50%;margin:39px 0px 0px 0px;">
                                                 <img class="lazy-load attachment-thumbnail size-thumbnail sp-no-webp" src="~/image/{@item.Logo}">
                                             </div>
                                         </a>
-                                        <style>
-                                            #image_754866892 {
-                                                width: 100%
-                                            }
-                                        </style>
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +97,7 @@
                                         <div class="box-text box-text-products text-center grid-style-2">
                                             <div class="title-wrapper">
                                                 <p class="name product-title woocommerce-loop-product__title">
-                                                    <a href="#" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                                                    <a href="@Url.Action("Detail","Home",new { id=item.ID})" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
                                                         @item.TenSP
                                                     </a>
                                                 </p>
@@ -166,7 +162,7 @@
                                     <div class="product-small box ">
                                         <div class="box-image">
                                             <div class="image-fade_in_back">
-                                                <a href="#">
+                                                <a href="@Url.Action("Detail","Home",new { id=item.ID})">
                                                     <img class="lazy-load attachment-woocommerce_thumbnail size-woocommerce_thumbnail sp-no-webp" src="~/image/@a.Avatar" />
                                                 </a>
                                             </div>
@@ -179,7 +175,7 @@
                                         <div class="box-text box-text-products text-center grid-style-2">
                                             <div class="title-wrapper">
                                                 <p class="name product-title woocommerce-loop-product__title">
-                                                    <a href="#"
+                                                    <a href="@Url.Action("Detail","Home",new { id=item.ID})"
                                                        class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
                                                         @a.TenSP
                                                     </a>

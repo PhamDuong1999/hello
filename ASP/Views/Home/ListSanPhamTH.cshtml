@@ -1,0 +1,170 @@
+﻿@using ASP.Models
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<ASP.Models.SanPham>
+
+@{
+    var id = ViewData["id"];
+    var ListSP = ViewData["ListSP"] as List<SanPham>;
+    var ncc = ViewData["ncc"] as NhaCungCap;
+    ViewBag.Title = "ListSanPham";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="shop-page-title category-page-title page-title featured-title dark ">
+    <div class="page-title-bg fill">
+        <div class="title-bg fill bg-fill" data-parallax-fade="true" data-parallax="-2" data-parallax-background
+             data-parallax-container=".page-title"></div>
+        <div class="title-overlay fill"></div>
+    </div>
+    <div class="page-title-inner flex-row medium-flex-wrap container">
+        <div class="flex-col flex-grow medium-text-center">
+            <h1 class="shop-page-title is-xlarge">@ncc.TenNCC</h1>
+            <div class="is-large">
+                <nav class="woocommerce-breadcrumb breadcrumbs uppercase">
+                    <a href="https://shopwatch.vn">
+                        Trang
+                        chủ
+                    </a> <span class="divider">&#47;</span> @ncc.TenNCC
+                </nav>
+            </div>
+            <div class="category-filtering category-filter-row ">
+                <a href="#" data-open="#shop-sidebar"
+                   data-pos="left" class="filter-button uppercase plain">
+                    <i class="icon-equalizer"></i>
+                    <strong>TÌM THEO GIÁ BÁN</strong>
+                </a>
+                <div class="inline-block"></div>
+            </div>
+        </div>
+        <div class="flex-col medium-text-center form-flat">
+            <p class="woocommerce-result-count hide-for-medium"> Hiển thị 1&ndash;16 của 233 kết quả</p>
+            <form class="woocommerce-ordering" method="get">
+                <select name="orderby" class="orderby"
+                        aria-label="Đơn hàng của cửa hàng">
+                    <option value="popularity">Thứ tự theo mức độ phổ biến</option>
+                    <option value="rating">Thứ tự theo điểm đánh giá</option>
+                    <option value="date" selected='selected'>Mới nhất</option>
+                    <option value="price">Thứ tự theo giá: thấp đến cao</option>
+                    <option value="price-desc">Thứ tự theo giá: cao xuống thấp</option>
+                </select> <input type="hidden" name="paged" value="1" />
+            </form>
+        </div>
+    </div>
+</div>
+<main id="main" class="">
+    <div class="row category-page-row">
+        <div class="col large-12">
+            <div class="shop-container">
+                <div class="term-description">
+                    <p style="text-align: center;">
+                        <strong>@ncc.TenNCC</strong> &nbsp;Tư vấn: <strong><a href="tel:097.559.2299">097.559.2299</a></strong>
+                    </p>
+                </div>
+                <div class="woocommerce-notices-wrapper"></div>
+                <div class="row row-small large-columns-4 medium-columns-3 small-columns-2 has-equal-box-heights equalize-box">
+                    @foreach (SanPham item in ListSP)
+                    {
+                        <div class="col">
+                            <div class="col-inner">
+                                <div class="badge-container absolute left top z-1">
+                                    <div class="callout badge badge-circle">
+                                        <div class="badge-inner secondary on-sale">
+                                            <span class="onsale">-@item.Sale%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-small box ">
+                                    <div class="box-image">
+                                        <div class="image-fade_in_back">
+                                            <a href="@Url.Action("Detail","Home",new { id=item.ID})">
+                                                <img width="247" height="247" src="~/image/{@item.Avatar}" sizes="(max-width: 247px) 100vw, 247px" />
+                                            </a>
+                                        </div>
+                                        <div class="image-tools is-small top right show-on-hover"></div>
+                                        <div class="image-tools is-small hide-for-small bottom left show-on-hover">
+                                        </div>
+                                        <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
+                                        </div>
+                                    </div>
+                                    <div class="box-text box-text-products text-center grid-style-2">
+                                        <div class="title-wrapper">
+                                            <p class="name product-title woocommerce-loop-product__title">
+                                                <a href="@Url.Action("Detail","Home",new { id=item.ID})"
+                                                   class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                                                    @item.TenSP
+                                                </a>
+                                            </p>
+                                        </div>
+                                        <div class="price-wrapper">
+                                            <span class="price">
+                                                <del>
+                                                    <span class="woocommerce-Price-amount amount">
+                                                        <bdi>
+                                                            @{
+                                                                int dongia = (int)item.DonGia;
+                                                                string dg = String.Format("{0:0,00}", dongia);
+                                                            }
+                                                            @dg&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+                                                        </bdi>
+                                                    </span>
+                                                </del>
+                                                <ins>
+                                                    <span class="woocommerce-Price-amount amount">
+                                                        <bdi>
+                                                            @{
+                                                                float sale = ((float)(100 - item.Sale) / 100);
+                                                                float a = (float)(item.DonGia * sale);
+                                                                string A = String.Format("{0:0,00}", a);
+                                                            }
+                                                            @A&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+                                                        </bdi>
+                                                    </span>
+                                                </ins>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="container">
+                    @Html.PagedListPager(Model, page => Url.Action("Products", "Home", new { id=id,op=-1, page }))
+                </div>
+            </div>
+            <div id="shop-sidebar" class="mfp-hide">
+                <div class="sidebar-inner">
+                    <aside id="devvn_woocommerce_price_list_filter-3"
+                           class="widget devvn_woocommerce_price_list_filter woocommerce widget_layered_nav">
+                        <ul class="woocommerce-widget-layered-nav-list">
+                            <li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term ">
+                                <a href="@Url.Action("ListSanPhamTH","Home", new {id=id,op=1 })">Dưới 1 triệu</a>
+                            </li>
+                            <li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term ">
+                                <a href="@Url.Action("ListSanPhamTH","Home", new {id=id,op=2 })">
+                                    Từ
+                                    1 triệu - 3 triệu
+                                </a>
+                            </li>
+                            <li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term ">
+                                <a href="@Url.Action("ListSanPhamTH","Home", new {id=id,op=3 })">
+                                    Từ
+                                    3 triệu - 5 triệu
+                                </a>
+                            </li>
+                            <li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term ">
+                                <a href="@Url.Action("ListSanPhamTH","Home", new {id=id,op=4 })">
+                                    Từ
+                                    5 triệu - 7 triệu
+                                </a>
+                            </li>
+                            <li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term ">
+                                <a href="@Url.Action("ListSanPhamTH","Home", new {id=id,op=5 })">Trên 7 triệu</a>
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </div>
+</main>
+
