@@ -21,10 +21,10 @@
             <h1 class="shop-page-title is-xlarge">@ncc.TenNCC</h1>
             <div class="is-large">
                 <nav class="woocommerce-breadcrumb breadcrumbs uppercase">
-                    <a href="https://shopwatch.vn">
+                    <a href="@Url.Action("HomeBody","Home")">
                         Trang
                         chủ
-                    </a> <span class="divider">&#47;</span> @ncc.TenNCC
+                    </a> <span class="divider">&#47;</span><a href="@Url.Action("ListSanPhamTH","Home",new {id=id,op=-1 })"> @ncc.TenNCC </a> 
                 </nav>
             </div>
             <div class="category-filtering category-filter-row ">
@@ -129,7 +129,7 @@
                     }
                 </div>
                 <div class="container">
-                    @Html.PagedListPager(Model, page => Url.Action("Products", "Home", new { id=id,op=-1, page }))
+                    @Html.PagedListPager(Model, page => Url.Action("ListSanPhamTH", "Home", new { id=id,op=-1, page }))
                 </div>
             </div>
             <div id="shop-sidebar" class="mfp-hide">

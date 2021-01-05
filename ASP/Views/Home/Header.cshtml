@@ -114,9 +114,9 @@
                         <li class="header-divider"></li>
                         <li class="cart-item has-icon">
                             <div class="header-button">
-                                <a href="https://shopwatch.vn/gio-hang"
+                                <a href="@Url.Action("GioHang","Home")"
                                    class="header-cart-link off-canvas-toggle nav-top-link icon primary button round is-small"
-                                   data-open="#cart-popup" data-class="off-canvas-cart" title="Giỏ hàng"
+                                   @*data-open="#cart-popup" data-class="off-canvas-cart"*@ title="Giỏ hàng"
                                    data-pos="right">
                                     <span class="header-cart-title">
                                         <span class="cart-price">
@@ -129,20 +129,20 @@
                                     </span> <i class="icon-shopping-bag" data-icon-label="0"> </i>
                                 </a>
                             </div>
-                            <div id="cart-popup" class="mfp-hide widget_shopping_cart">
-                                <div class="cart-popup-inner inner-padding">
-                                    <div class="cart-popup-title text-center">
-                                        <h4 class="uppercase">Giỏ hàng</h4>
-                                        <div class="is-divider"></div>
+                            @*<div id="cart-popup" class="mfp-hide widget_shopping_cart">
+                                    <div class="cart-popup-inner inner-padding">
+                                        <div class="cart-popup-title text-center">
+                                            <h4 class="uppercase">Giỏ hàng</h4>
+                                            <div class="is-divider"></div>
+                                        </div>
+                                        <div class="widget_shopping_cart_content">
+                                            <p class="woocommerce-mini-cart__empty-message">
+                                                Chưa có sản phẩm trong giỏ hàng.
+                                            </p>
+                                        </div>
+                                        <div class="cart-sidebar-content relative"></div>
                                     </div>
-                                    <div class="widget_shopping_cart_content">
-                                        <p class="woocommerce-mini-cart__empty-message">
-                                            Chưa có sản phẩm trong giỏ hàng.
-                                        </p>
-                                    </div>
-                                    <div class="cart-sidebar-content relative"></div>
-                                </div>
-                            </div>
+                                </div>*@
                         </li>
                     </ul>
                 </div>

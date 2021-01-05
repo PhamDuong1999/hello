@@ -74,7 +74,7 @@ namespace ASP.Controllers
             ViewBag.listSP = ListSP;
             return PartialView("ListSanPhamTH",ListSP.ToPagedList(page,pageSize));
         }
-        public ActionResult ListSanPhamDM(int id,int op)
+        public ActionResult ListSanPhamDM(int id,int op=-1, int page = 1, int pageSize = 1)
         {
             List<SanPham> ListSP = null;
             if (op == -1)
@@ -103,10 +103,10 @@ namespace ASP.Controllers
             }
             DanhMuc dm = db.DanhMucs.FirstOrDefault(x => x.ID == id);
             ViewBag.dm = dm;
-            ViewBag.listSP = ListSP;
-            return PartialView("ListSanPhamDM");
+            ViewBag.id = id;
+            return PartialView("ListSanPhamDM", ListSP.ToPagedList(page, pageSize));
         }
-        public ActionResult Search(string key,int op=-1)
+        public ActionResult Search(string key,int op=-1, int page = 1, int pageSize = 8)
         {
             List<SanPham> ListSP = null;
             if (op == -1)
@@ -133,8 +133,58 @@ namespace ASP.Controllers
             {
                 ListSP = db.SanPhams.Where(x => (x.DonGia * (100 - x.Sale) / 100 >= 7000000) && x.TenSP.ToLower().Contains(key.ToLower().Trim())).ToList();
             }
+            ViewBag.Key = key;
             ViewBag.ListSP = ListSP;
             return PartialView("ListSanPham");
+        }
+        private const string CartSession = "CartSession";
+        public ActionResult GioHang()
+        {
+            var cart = Session[CartSession];
+            var list = new List<CartItem>();
+            if (cart != null)
+            {
+                list = (List<CartItem>)cart;
+            }
+            return View(list);
+        }
+        public ActionResult AddItem(int spId, int sl)
+        {
+            var sp = new SanPham();
+            sp = db.SanPhams.FirstOrDefault(x => x.ID == spId);
+            var cart = Session[CartSession];
+            if (cart != null)
+            {
+                var list = (List<CartItem>)cart;
+                if (list.Exists(x => x.SanPham.ID == spId))
+                {
+                    foreach (var item in list)
+                    {
+                        if (item.SanPham.ID == spId)
+                        {
+                            item.Sl += sl;
+                        }
+                    }
+                }
+                else
+                {
+                    var item = new CartItem();
+                    item.SanPham = sp;
+                    item.Sl = sl;
+                    list.Add(item);
+                }
+                Session[CartSession] = list;
+            }
+            else
+            {
+                var item = new CartItem();
+                item.SanPham = sp;
+                item.Sl = sl;
+                var list = new List<CartItem>();
+                list.Add(item);
+                Session[CartSession] = list;
+            }
+            return RedirectToAction("GioHang");
         }
     }
 }

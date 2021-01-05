@@ -9,6 +9,6 @@ namespace ASP.Models
     public class CartItem
     {
         public SanPham SanPham {get;set;}
-        public int Tong { get; set; }
+        public int Sl { get; set; }
     }
 }

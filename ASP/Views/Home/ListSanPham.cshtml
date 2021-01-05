@@ -1,8 +1,10 @@
-﻿
+﻿@using PagedList;
+@using PagedList.Mvc;
 @using ASP.Models
-@model List<ASP.Models.SanPham>
+@model PagedList.IPagedList<ASP.Models.SanPham>
 @{
     var ListSP = ViewData["ListSP"] as List<SanPham>;
+    var key = ViewData["Key"];
     ViewBag.Title = "ListSanPhamDM";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -14,13 +16,13 @@
     </div>
     <div class="page-title-inner flex-row medium-flex-wrap container">
         <div class="flex-col flex-grow medium-text-center">
-            
+
             <div class="is-large">
                 <nav class="woocommerce-breadcrumb breadcrumbs uppercase">
-                    <a href="https://shopwatch.vn">
+                    <a href="@Url.Action("HomeBody","Home")">
                         Trang
                         chủ
-                    </a> 
+                    </a> <span class="divider">&#47;</span> KẾT QUẢ TÌM KIẾM CHO "@key"
                 </nav>
             </div>
             <div class="category-filtering category-filter-row ">
@@ -133,35 +135,7 @@
 
                 </div>
                 <div class="container">
-                    <nav class="woocommerce-pagination">
-                        <ul class="page-numbers nav-pagination links text-center">
-                            <li><span aria-current="page" class="page-number current">1</span></li>
-                            <li>
-                                <a class="page-number" href="https://shopwatch.vn/dong-ho-orient/page/2">2</a>
-                            </li>
-                            <li>
-                                <a class="page-number" href="https://shopwatch.vn/dong-ho-orient/page/3">3</a>
-                            </li>
-                            <li>
-                                <a class="page-number" href="https://shopwatch.vn/dong-ho-orient/page/4">4</a>
-                            </li>
-                            <li><span class="page-number dots">&hellip;</span></li>
-                            <li>
-                                <a class="page-number" href="https://shopwatch.vn/dong-ho-orient/page/13">13</a>
-                            </li>
-                            <li>
-                                <a class="page-number" href="https://shopwatch.vn/dong-ho-orient/page/14">14</a>
-                            </li>
-                            <li>
-                                <a class="page-number" href="https://shopwatch.vn/dong-ho-orient/page/15">15</a>
-                            </li>
-                            <li>
-                                <a class="next page-number" href="https://shopwatch.vn/dong-ho-orient/page/2">
-                                    <i class="icon-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+                    @Html.PagedListPager(Model, page => Url.Action("ListSanPhamTH", "Home", new { key = key, op = -1, page }))
                 </div>
             </div>
             <div id="shop-sidebar" class="mfp-hide">
@@ -170,28 +144,28 @@
                            class="widget devvn_woocommerce_price_list_filter woocommerce widget_layered_nav">
                         <ul class="woocommerce-widget-layered-nav-list">
                             <li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term ">
-                                <a href="@Url.Action("FilterMax","Home",1000000)">Dưới 1 triệu</a>
+                                <a href="@Url.Action("Search","Home", new {key=key,op=1 })">Dưới 1 triệu</a>
                             </li>
                             <li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term ">
-                                <a href="https://shopwatch.vn/dong-ho-orient?max_price=3000000&#038;min_price=1000000">
+                                <a href="@Url.Action("Search","Home", new {key=key,op=2 })">
                                     Từ
                                     1 triệu - 3 triệu
                                 </a>
                             </li>
                             <li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term ">
-                                <a href="https://shopwatch.vn/dong-ho-orient?max_price=5000000&#038;min_price=3000000">
+                                <a href="@Url.Action("Search","Home", new {key=key,op=3 })">
                                     Từ
                                     3 triệu - 5 triệu
                                 </a>
                             </li>
                             <li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term ">
-                                <a href="https://shopwatch.vn/dong-ho-orient?max_price=7000000&#038;min_price=5000000">
+                                <a href="@Url.Action("Search","Home", new {key=key,op=4 })">
                                     Từ
                                     5 triệu - 7 triệu
                                 </a>
                             </li>
                             <li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term ">
-                                <a href="https://shopwatch.vn/dong-ho-orient?min_price=7000000">Trên 7 triệu</a>
+                                <a href="@Url.Action("Search","Home", new {key=key,op=5 })">Trên 7 triệu</a>
                             </li>
                         </ul>
                     </aside>
@@ -199,8 +173,3 @@
             </div>
         </div>
 </main>
-<script>
-    function Filter(op, ncc,dm) {
-        $(location).attr('href',`Home/ListSP?op=${op}&ncc=${ncc}&dm=${dm}`)
-    }
-</script>

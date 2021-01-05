@@ -81,14 +81,12 @@
                                     @sp.GioiThieu
                                 </p>
                             </div>
-                            <form class="cart" action="#" method="post"
-                                  enctype='multipart/form-data'>
                                 <div class="sticky-add-to-cart-wrapper">
                                     <div class="sticky-add-to-cart">
                                         <div class="sticky-add-to-cart__product">
-                                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E"
+                                            <img 
                                                  alt="" class="sticky-add-to-cart-img"
-                                                 data-lazy-src="https://shopwatch.vn/wp-content/uploads/2018/10/Seiko-SNK809K1-1-100x100.jpg" /><noscript>
+                                                 data-lazy-src="@sp.Avatar" /><noscript>
                                                 <img src="@sp.Avatar"
                                                      alt="" class="sticky-add-to-cart-img" />
                                             </noscript>
@@ -96,6 +94,7 @@
                                                 <strong>
                                                     @sp.TenSP
                                                 </strong>
+                                                
                                             </div>
                                             <div class="price-wrapper">
                                                 <p class="price product-page-price price-on-sale">
@@ -121,12 +120,11 @@
                                                    value="-" class="minus button is-form"> <label class="screen-reader-text" for="quantity_5fd0739cf1f1b">
                                                 @sp.TenSP số lượng
                                             </label> <input type="number"
-                                                            id="quantity_5fd0739cf1f1b" class="input-text qty text" step="1"
-                                                            min="1" max="" name="quantity" value="1" title="SL" size="4"
+                                                            id="tong" class="input-text qty text" step="1"
+                                                            min="1" max="" name="tong" value="1" title="SL" size="4"
                                                             placeholder="" inputmode="numeric" /> <input type="button"
                                                                                                          value="+" class="plus button is-form">
-                                        </div> <button type="submit" name="add-to-cart" value="10210"
-                                                       class="single_add_to_cart_button button alt">
+                                        </div> <button type="submit" id="Mua" onclick="Mua()">
                                             MUA NGAY
                                         </button>
                                         @*<input type="hidden" name="gtm4wp_id" value="10210" /> <input type="hidden" name="gtm4wp_name"
@@ -136,8 +134,8 @@
                                                                                                                                                                                       name="gtm4wp_price" value="2200000" /> <input type="hidden"
                                                                                                                                                                                                                                     name="gtm4wp_stocklevel" value="" />*@
                                     </div>
-                                </div>
-                            </form> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E"
+                                </div> 
+                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E"
                                          data-lazy-src="https://shopwatch.vn/wp-content/uploads/2020/09/Untitled-3.jpg"><noscript>
                                 <img src="https://shopwatch.vn/wp-content/uploads/2020/09/Untitled-3.jpg">
                             </noscript>
@@ -1027,4 +1025,12 @@
         </div>
         </div>
     </div>
+    <input type="hidden" value="@sp.ID" id="id_sp" />
 </main>
+<script>
+    function Mua() {
+        var id = $("#id_sp").val();
+        var sl = $('#tong').val();
+        $(location).attr('href', `/Home/AddItem?spId=${id}&sl=${sl}`)
+    }
+</script>

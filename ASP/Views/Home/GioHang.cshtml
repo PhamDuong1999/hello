@@ -1,0 +1,243 @@
+﻿@using ASP.Models
+@model List<CartItem>
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main id="main" class="">
+    <div id="content" class="content-area page-wrapper" role="main">
+        <div class="row row-main">
+            <div class="large-12 col">
+                <div class="col-inner">
+
+
+
+                    <div class="woocommerce">
+                        <div class="woocommerce-notices-wrapper">
+                            <div class="woocommerce-message message-wrapper" role="alert">
+                                <div class="message-container container success-color medium-text-center">
+                                    <i class="icon-checkmark"></i> <a href="https://shopwatch.vn/orient-fag02003w0" tabindex="1"
+                                                                      class="button wc-forward">Tiếp tục xem sản phẩm</a> &ldquo;Orient
+                                    FAG02003W0&rdquo; đã được thêm vào giỏ hàng.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="woocommerce row row-large row-divided">
+                            <div class="col large-7 pb-0 ">
+
+
+                                <form class="woocommerce-cart-form" action="https://shopwatch.vn/gio-hang"
+                                      method="post">
+                                    <div class="cart-wrapper sm-touch-scroll">
+
+
+                                        <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents"
+                                               cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th class="product-name" colspan="3">Sản phẩm</th>
+                                                    <th class="product-price">Giá</th>
+                                                    <th class="product-quantity">Số lượng</th>
+                                                    <th class="product-subtotal">Tạm tính</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model)
+                                                {
+                                                    <tr class="woocommerce-cart-form__cart-item cart_item">
+
+                                                        <td class="product-remove">
+                                                            <a href="#" class="remove" aria-label="Xóa sản phẩm này">&times;</a>
+                                                        </td>
+
+                                                        <td class="product-thumbnail">
+                                                            <a href="@Url.Action("Detail", "Home", new { id = item.SanPham.ID })">
+                                                                    <img src="@item.SanPham.Avatar" class="lazy-load attachment-woocommerce_thumbnail size-woocommerce_thumbnail sp-no-webp">
+                                                            </a>
+                                                        </td>
+
+                                                        <td class="product-name" data-title="Sản phẩm">
+                                                            <a href="@Url.Action("Detail", "Home", new { id = item.SanPham.ID })">
+                                                                @item.SanPham.TenSP
+                                                            </a>
+                                                        </td>
+
+                                                        <td class="product-price" data-title="Giá">
+                                                            <span class="woocommerce-Price-amount amount">
+                                                                <bdi>
+                                                                    @{
+                                                                        float sale = ((float)(100 - item.SanPham.Sale) / 100);
+                                                                        float dongia1 = (float)(item.SanPham.DonGia * sale);
+                                                                        string dg1 = String.Format("{0:0,00}", dongia1);
+                                                                    }
+                                                                    @dg1&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+                                                                </bdi>
+                                                            </span>
+                                                        </td>
+
+                                                        <td class="product-quantity" data-title="Số lượng">
+                                                            <div class="quantity buttons_added form-flat">
+                                                                <input type="number" id="soluong" step="1" min="0" max="" value="@item.Sl" title="SL" />
+                                                            </div>
+                                                        </td>
+
+                                                        <td class="product-subtotal" data-title="Tạm tính">
+                                                            <span class="woocommerce-Price-amount amount">
+                                                                <bdi>
+                                                                    @{
+                                                                        float tamtinh = dongia1 * item.Sl;
+                                                                        string tt = String.Format("{0:0,00}", tamtinh);
+                                                                    }
+                                                                        @tt&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+                                                                </bdi>
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                                        }
+
+
+
+                                                <tr>
+                                                    <td colspan="6" class="actions clear">
+
+
+                                                        <div class="continue-shopping pull-left text-left">
+                                                            <a class="button-continue-shopping button primary is-outline"
+                                                               href="@Url.Action("HomeBody","Home")">
+                                                                &#8592;&nbsp;Tiếp tục xem sản phẩm
+                                                            </a>
+                                                        </div>
+
+                                                        <button type="submit"
+                                                                class="button primary mt-0 pull-left small"
+                                                                name="update_cart" value="Cập nhật giỏ hàng">
+                                                            Cập
+                                                            nhật giỏ hàng
+                                                        </button>
+
+                                                        <input type="hidden" id="woocommerce-cart-nonce"
+                                                               name="woocommerce-cart-nonce"
+                                                               value="d0b23bef3f" /><input type="hidden"
+                                                                                           name="_wp_http_referer" value="/gio-hang" />
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </form>
+                            </div>
+
+
+                            <div class="cart-collaterals large-5 col pb-0">
+                                <div class="is-sticky-column">
+                                    <div class="is-sticky-column__inner">
+                                        <div class="cart-sidebar col-inner ">
+                                            <div class="cart_totals ">
+
+                                                <table cellspacing="0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="product-name" colspan="2"
+                                                                style="border-width:3px;">Cộng giỏ hàng</th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+
+                                                <h2>Cộng giỏ hàng</h2>
+
+                                                <table cellspacing="0" class="shop_table shop_table_responsive">
+
+                                                    <tr class="cart-subtotal">
+                                                        <th>Tạm tính</th>
+                                                        <td data-title="Tạm tính">
+                                                            <span class="woocommerce-Price-amount amount">
+                                                                <bdi>
+                                                                    3.900.000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+                                                                </bdi>
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+
+
+
+
+                                                    <tr class="woocommerce-shipping-totals shipping ">
+                                                        <td class="shipping__inner" colspan="2">
+                                                            <table class="shipping__table ">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th>Giao hàng</th>
+                                                                        <td data-title="Giao hàng">
+                                                                            Miễn phí
+
+                                                                        </td>
+                                                                </tbody>
+                                                    </tr>
+                                                </table>
+                                                </td>
+                                                </tr>
+
+
+
+
+
+
+                                                <tr class="order-total">
+                                                    <th>Tổng</th>
+                                                    <td data-title="Tổng">
+                                                        <strong>
+                                                            <span class="woocommerce-Price-amount amount">
+                                                                <bdi>
+                                                                    3.900.000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+                                                                </bdi>
+                                                            </span>
+                                                        </strong>
+                                                    </td>
+                                                </tr>
+
+
+                                                </table>
+
+                                                <div class="wc-proceed-to-checkout">
+                                                    <a href="https://shopwatch.vn/thanh-toan"
+                                                       class="checkout-button button alt wc-forward">
+                                                        ĐẶT HÀNG
+                                                    </a>
+                                                </div>
+
+
+                                            </div>
+                                            <form class="checkout_coupon mb-0" method="post">
+                                                <div class="coupon">
+                                                    <h3 class="widget-title">
+                                                        <i class="icon-tag"></i> Mã giảm
+                                                        giá
+                                                    </h3><input type="text" name="coupon_code"
+                                                                class="input-text" id="coupon_code" value=""
+                                                                placeholder="Nhập mã giảm giá" /> <input type="submit"
+                                                                                                         class="is-form expand" name="apply_coupon"
+                                                                                                         value="ĐỒNG Ý" />
+                                                </div>
+                                            </form>
+                                            <div class="cart-sidebar-content relative"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cart-footer-content after-cart-content relative"></div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+
